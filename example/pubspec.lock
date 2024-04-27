@@ -195,9 +195,10 @@ packages:
   toastify_flutter:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
+      name: toastify_flutter
+      sha256: "12995d6cead4bc182caf0d73f571b9e87e544240dc6aa5ca297e7b7d29262e06"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.3.0"
   vector_math:
     dependency: transitive
