@@ -12,3 +12,9 @@ See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more 
 - the platforms it supports are added
 
 See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
+
+## 1.0.1
+
+- small adjustments not important
+
+See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
