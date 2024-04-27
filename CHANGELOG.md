@@ -18,3 +18,9 @@ See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more 
 - small adjustments not important
 
 See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
+
+## 1.0.2
+
+- add platforms
+
+See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.

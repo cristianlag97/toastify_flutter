@@ -16,7 +16,7 @@ This translation captures the essence of your package's description and its func
 
 ```
 dependencies:
-  toastify_flutter: 1.0.1
+  toastify_flutter: 1.0.2
  ```
 
 
