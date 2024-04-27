@@ -1,6 +1,6 @@
 name: toastify_flutter
 description: "A simple plugin to show custom toasts in Flutter apps"
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/cristianlag97/toastify_flutter
 
 environment:
@@ -18,10 +18,3 @@ dev_dependencies:
 
 
 flutter:
-  plugin:
-    platforms:
-      android:
-        package: com.example.toastifyflutter
-        pluginClass: ToastifyFlutter
-      ios:
-        pluginClass: ToastifyFlutter
