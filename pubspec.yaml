@@ -1,6 +1,6 @@
 name: toastify_flutter
-description: "A simple plugin to show custom toasts in Flutter apps"
-version: 1.0.3
+description: "Toast Library for Flutter: Easily create custom toast messages. Add short, customizable notifications to your Flutter apps quickly."
+version: 1.0.4
 homepage: https://github.com/cristianlag97/toastify_flutter
 
 environment:

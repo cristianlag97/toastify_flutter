@@ -1,3 +1,9 @@
+## 1.0.4
+
+- project description changed
+
+See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
+
 ## 1.0.3
 
 - remove platforms
