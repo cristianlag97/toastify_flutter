@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text('Material App Bar'),
         ),
@@ -30,10 +31,13 @@ class MyHome extends StatelessWidget {
     return Center(
       child: FilledButton(
           onPressed: () {
-            ToastifyFlutter.show(
+            ToastifyFlutter.error(
               context,
-              message: 'This is a custom toast message',
+              message: 'This is a custom toast message.',
+              duration: 5,
               position: ToastPosition.top,
+              style: ToastStyle.flat,
+              onClose: true,
             );
           },
           child: const Text('Show toast')),

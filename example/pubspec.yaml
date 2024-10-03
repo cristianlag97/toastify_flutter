@@ -30,7 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  toastify_flutter: 0.3.0
+  toastify_flutter:
+    path: ../
 
 
   # The following adds the Cupertino Icons font to your application.

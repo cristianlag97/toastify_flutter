@@ -1,3 +1,10 @@
+## 2.0.0
+- Removed the `show` method used to display toasts.
+- Added specific methods: `success`, `info`, `warning`, and `error` for more advanced customization.
+- Improved toast customization capabilities.
+
+See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
+
 ## 1.0.4
 
 - project description changed

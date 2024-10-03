@@ -16,7 +16,7 @@ This translation captures the essence of your package's description and its func
 
 ```
 dependencies:
-  toastify_flutter: 1.0.4
+  toastify_flutter: 2.0.0
  ```
 
 
@@ -28,10 +28,13 @@ import 'package:toastify_flutter/flutter_toastify.dart';
 To display a simple toast, use the following code:
 
 ```
-ToastifyFlutter.show(
+ToastifyFlutter.success(
   context,
-  message: 'This is a custom toast message',
-  duration: 2,
+  message: 'This is a custom toast message.',
+  duration: 5,
+  position: ToastPosition.bottom,
+  style: ToastStyle.simple,
+  onClose: true,
 );
  ```
 
@@ -57,9 +60,13 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: ElevatedButton(
             onPressed: () {
-              ToastifyFlutter.show(
+              ToastifyFlutter.success(
                 context,
-                message: 'This is a custom toast message',
+                message: 'This is a custom toast message.',
+                duration: 5,
+                position: ToastPosition.bottom,
+                style: ToastStyle.simple,
+                onClose: true,
               );
             },
             child: Text('show toast'),
@@ -72,37 +79,44 @@ class MyApp extends StatelessWidget {
 
 ```
 
-# Toast Top
+# Toast success Top
 
 ```
 ElevatedButton(
   onPressed: () {
-    ToastifyFlutter.show(
+    ToastifyFlutter.success(
       context,
-      message: 'This is a custom toast message',
+      message: 'This is a custom toast message.',
+      duration: 5,
       position: ToastPosition.top,
+      style: ToastStyle.flat,
+      onClose: true,
     );
   },
   child: Text('show toast'),
 ),
 ```
-<img src="screenshots/capture1.png" width=300>
+![Texto Alternativo](screenshots/capture1.png)
 
-# Toast error
+# Toast error, info and warning
 ```
 ElevatedButton(
   onPressed: () {
-    ToastifyFlutter.show(
+    ToastifyFlutter.error(
       context,
-      message: 'This is a custom toast message',
+      message: 'This is a custom toast message.',
+      duration: 5,
       position: ToastPosition.top,
-      isFailed: true,
+      style: ToastStyle.flat,
+      onClose: true,
     );
   },
   child: Text('show toast'),
 ),
 ```
-<img src="screenshots/capture2.png" width=300>
+
+![Texto Alternativo](screenshots/capture2.png)
+![Texto Alternativo](screenshots/capture3.png)
 
 
 # Toast Bottom
@@ -110,14 +124,17 @@ ElevatedButton(
 ```
 ElevatedButton(
   onPressed: () {
-    ToastifyFlutter.show(
-      context,
-      message: 'This is a custom toast message',
-      position: ToastPosition.bottom,
-       isFailed: true,
+    ToastifyFlutter.error(
+     context,
+              message: 'This is a custom toast message.',
+              duration: 5,
+              position: ToastPosition.top,
+              style: ToastStyle.minimal,
+              onClose: true,
     );
   },
   child: Text('show toast'),
 ),
 ```
-<img src="screenshots/capture3.png" width=300>
+
+![Texto Alternativo](screenshots/capture4.png)
