@@ -10,8 +10,6 @@ Key features:
 - Configure the duration and position of the toast on the screen.
 - Seamless integration into Flutter applications to provide user feedback intuitively.
 
-This translation captures the essence of your package's description and its functionalities in English. If you need further adjustments or have more content to translate, feel free to let me know!
-
 # How to use
 
 ```
