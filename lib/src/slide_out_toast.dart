@@ -3,14 +3,14 @@ import 'package:toastify_flutter/toastify_flutter.dart';
 
 /// A widget that displays a custom toast message with a sliding animation.
 ///
-/// The toast slides in from either the top or the bottom of the screen, depending
-/// on the provided [ToastPosition], and slides out after a specified [duration].
+/// The toast slides in from either the top, bottom, left, or right of the screen,
+/// depending on the provided [ToastPosition] and [ToastAlignment], and slides out after a specified [duration].
 ///
 /// The appearance of the toast can be customized using the [style], [textStyle],
 /// [textAlign], and [type] properties. Optionally, you can pass a callback
 /// [onClose] that is invoked when the toast is dismissed.
 ///
-/// This widget uses an [AnimationController] to handle the sliding animation.
+/// This widget uses an [AnimationController] and a [CurvedAnimation] to handle the sliding animation.
 
 class SlideOutToast extends StatefulWidget {
   /// The message to be displayed in the toast.
@@ -21,6 +21,9 @@ class SlideOutToast extends StatefulWidget {
 
   /// The position where the toast will appear on the screen (top or bottom).
   final ToastPosition position;
+
+  /// The alignment where the toast will appear horizontally (left, right, or center).
+  final ToastAlignment alignment;
 
   /// The style of the toast (flat, filled, etc.), which affects the background color.
   final ToastStyle style;
@@ -37,6 +40,9 @@ class SlideOutToast extends StatefulWidget {
   /// An optional callback that is triggered when the toast is dismissed.
   final VoidCallback? onClose;
 
+  /// The animation curve used for the slide transition effect.
+  final Curve animationCurve;
+
   /// Creates a [SlideOutToast] widget.
   ///
   /// The [message], [position], [style], and [type] are required.
@@ -46,8 +52,10 @@ class SlideOutToast extends StatefulWidget {
     required this.message,
     this.duration = 2,
     required this.position,
+    required this.alignment,
     required this.type,
     required this.style,
+    required this.animationCurve,
     this.textStyle,
     this.textAlign,
     this.onClose,
@@ -76,13 +84,26 @@ class _SlideOutToastState extends State<SlideOutToast>
       duration: const Duration(milliseconds: 500),
     );
 
+    // Determines the initial position based on alignment and position.
+    final Offset beginOffset = switch (widget.alignment) {
+      ToastAlignment.left => const Offset(-1.0, 0.0), // Slide in from left.
+      ToastAlignment.right => const Offset(1.0, 0.0), // Slide in from right.
+      _ => widget.position == ToastPosition.top
+          ? const Offset(0.0, -1.0) // Slide in from top.
+          : const Offset(0.0, 1.0), // Slide in from bottom.
+    };
+
+    // Creates a curved animation based on the provided animation curve.
+    final curvedAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: widget.animationCurve, // Puedes cambiar el tipo de curva
+    );
+
     // Defines the sliding animation's start and end positions based on the toast's position.
     _position = Tween<Offset>(
-      begin: widget.position == ToastPosition.top
-          ? const Offset(0.0, -1.0) // Slide in from the top.
-          : const Offset(0.0, 1.0), // Slide in from the bottom.
-      end: const Offset(0.0, 0.0), // End at the center of the screen.
-    ).animate(_controller);
+      begin: beginOffset,
+      end: Offset.zero, // End at the center of the screen.
+    ).animate(curvedAnimation);
   }
 
   @override

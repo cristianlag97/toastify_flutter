@@ -48,19 +48,23 @@ class ToastifyFlutter {
   /// a toast message. It is reused by the `success`, `info`, `warning`, and `error` methods.
   static void _showToast(
     BuildContext context, {
-    required String message,
-    required ToastType type, // success, info, warning, error
-    int duration = 2,
+    required String message, // The text message to display in the toast
+    required ToastType type, // Type of toast (success, info, warning, error)
+    required Curve animationCurve,
+    // The animation curve for the toast appearance
+    int duration = 2, // Duration in seconds for which the toast is displayed
     ToastPosition position = ToastPosition.bottom,
-    ToastStyle style = ToastStyle.simple,
-    TextStyle? textStyle,
+    // Position of the toast (bottom or top)
+    ToastAlignment alignment = ToastAlignment.center,
+    // Text alignment within the toast
+    ToastStyle style = ToastStyle.simple, // Visual style of the toast
+    TextStyle? textStyle, // Optional custom text style for the toast message
     TextAlign textAlign = TextAlign.left,
-    bool onClose = false,
+    // Text alignment inside the toast container
+    bool onClose = false, // Whether to trigger an action when the toast closes
   }) {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (_currentOverlayEntry != null) {
-        return;
-      }
+      if (_currentOverlayEntry != null) return;
 
       _currentOverlayEntry = OverlayEntry(
         builder: (context) => Positioned(
@@ -72,11 +76,13 @@ class ToastifyFlutter {
             message: message,
             duration: duration,
             position: position,
+            alignment: alignment,
             style: style,
-            type: ToastType.success,
+            type: type,
             textStyle: textStyle,
             textAlign: textAlign,
             onClose: onClose ? close : null,
+            animationCurve: animationCurve,
           ),
         ),
       );
@@ -95,26 +101,32 @@ class ToastifyFlutter {
   /// - `message`: The message to display in the toast.
   /// - `duration`: The duration (in seconds) for which the toast is displayed. Default is 2 seconds.
   /// - `position`: The position where the toast appears on the screen. Default is `ToastPosition.bottom`.
+  /// - `alignment`: The alignment of the toast message. Default is `ToastAlignment.center`.
   /// - `style`: The visual style of the toast. Default is `ToastStyle.simple`.
   /// - `textStyle`: Optional text style for customizing the message appearance.
   /// - `textAlign`: The alignment of the text. Default is `TextAlign.left`.
   /// - `onClose`: If true, the toast can trigger an optional action upon close.
+  /// - `animationCurve`: The curve that defines the toast animation. Default is `Curves.easeInOut`.
   static void success(
     BuildContext context, {
     required String message,
     int duration = 2,
     ToastPosition position = ToastPosition.bottom,
+    ToastAlignment alignment = ToastAlignment.center,
     ToastStyle style = ToastStyle.simple,
     TextStyle? textStyle,
     TextAlign textAlign = TextAlign.left,
     bool onClose = false,
+    Curve animationCurve = Curves.easeInOut,
   }) {
     _showToast(
       context,
+      animationCurve: animationCurve,
       message: message,
       type: ToastType.success,
       duration: duration,
       position: position,
+      alignment: alignment,
       style: style,
       textStyle: textStyle,
       textAlign: textAlign,
@@ -130,17 +142,21 @@ class ToastifyFlutter {
     required String message,
     int duration = 2,
     ToastPosition position = ToastPosition.bottom,
+    ToastAlignment alignment = ToastAlignment.center,
     ToastStyle style = ToastStyle.simple,
     TextStyle? textStyle,
     TextAlign textAlign = TextAlign.left,
     bool onClose = false,
+    Curve animationCurve = Curves.easeInOut,
   }) {
     _showToast(
       context,
+      animationCurve: animationCurve,
       message: message,
       type: ToastType.info,
       duration: duration,
       position: position,
+      alignment: alignment,
       style: style,
       textStyle: textStyle,
       textAlign: textAlign,
@@ -156,17 +172,21 @@ class ToastifyFlutter {
     required String message,
     int duration = 2,
     ToastPosition position = ToastPosition.bottom,
+    ToastAlignment alignment = ToastAlignment.center,
     ToastStyle style = ToastStyle.simple,
     TextStyle? textStyle,
     TextAlign textAlign = TextAlign.left,
     bool onClose = false,
+    Curve animationCurve = Curves.easeInOut,
   }) {
     _showToast(
       context,
+      animationCurve: animationCurve,
       message: message,
       type: ToastType.warning,
       duration: duration,
       position: position,
+      alignment: alignment,
       style: style,
       textStyle: textStyle,
       textAlign: textAlign,
@@ -182,17 +202,21 @@ class ToastifyFlutter {
     required String message,
     int duration = 2,
     ToastPosition position = ToastPosition.bottom,
+    ToastAlignment alignment = ToastAlignment.center,
     ToastStyle style = ToastStyle.simple,
     TextStyle? textStyle,
     TextAlign textAlign = TextAlign.left,
     bool onClose = false,
+    Curve animationCurve = Curves.easeInOut,
   }) {
     _showToast(
       context,
+      animationCurve: animationCurve,
       message: message,
       type: ToastType.error,
       duration: duration,
       position: position,
+      alignment: alignment,
       style: style,
       textStyle: textStyle,
       onClose: onClose,

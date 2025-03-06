@@ -14,7 +14,7 @@ Key features:
 
 ```
 dependencies:
-  toastify_flutter: 2.0.0
+  toastify_flutter: 2.1.0
  ```
 
 

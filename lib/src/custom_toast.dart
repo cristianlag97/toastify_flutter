@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'toast_position.dart';
@@ -51,8 +53,6 @@ class CustomToast extends StatelessWidget {
         return Icons.warning_amber_rounded;
       case ToastType.error:
         return Icons.error_outline_rounded;
-      default:
-        return Icons.info_outline;
     }
   }
 
@@ -66,7 +66,6 @@ class CustomToast extends StatelessWidget {
       case ToastType.error:
         return Colors.red[900]!;
       case ToastType.success:
-      default:
         return Colors.green[900]!;
     }
   }
@@ -173,7 +172,6 @@ class CustomToast extends StatelessWidget {
           onClose: onClose,
         );
       case ToastStyle.simple:
-      default:
         return SimpleToast(
           icon: getToastIcon(type),
           color: getToastColor(type, style),
@@ -238,7 +236,7 @@ class FlatColoredToast extends StatelessWidget {
           border: Border.all(color: colorBorder),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               offset: const Offset(0.0, 6),
               blurRadius: 8,
             ),
@@ -324,7 +322,7 @@ class FillColoredToast extends StatelessWidget {
           border: Border.all(color: color),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               offset: const Offset(0.0, 6),
               blurRadius: 8,
             ),
@@ -411,7 +409,7 @@ class FlatToast extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               offset: const Offset(0.0, 6),
               blurRadius: 8,
             ),
@@ -495,7 +493,7 @@ class SimpleToast extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               offset: const Offset(0.0, 6),
               blurRadius: 8,
             ),
@@ -590,7 +588,7 @@ class MinimalToast extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               offset: const Offset(0.0, 6),
               blurRadius: 8,
             ),

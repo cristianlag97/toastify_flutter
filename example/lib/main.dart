@@ -36,8 +36,10 @@ class MyHome extends StatelessWidget {
               message: 'This is a custom toast message.',
               duration: 5,
               position: ToastPosition.top,
+              // alignment: ToastAlignment.left,
               style: ToastStyle.flat,
               onClose: true,
+              animationCurve: Curves.easeOutBack,
             );
           },
           child: const Text('Show toast')),

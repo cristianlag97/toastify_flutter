@@ -45,3 +45,14 @@ enum ToastType {
   /// Indicates an error occurred during an operation.
   error,
 }
+
+enum ToastAlignment {
+  /// The toast appears at the center of the screen.
+  center,
+
+  /// The toast comes out from the left side of the screen.
+  left,
+
+  /// The toast comes out from the right side of the screen.
+  right,
+}
