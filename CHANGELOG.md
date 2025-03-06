@@ -1,3 +1,8 @@
+## 2.1.1
+- Removed unused `dart:ui` import.
+
+See [GitHub issues](https://github.com/cristianlag97/toastify_flutter) for more details.
+
 ## 2.1.0
 - Added `alignment` property to control horizontal alignment of toasts (`left`, `center`, `right`).
 - Added `animationCurve` property for customizing the animation easing of the toast.
